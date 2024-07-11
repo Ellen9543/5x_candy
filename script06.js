@@ -4,6 +4,8 @@
 
 function findDifferent(numbers) {
   const cntNum = {};
+
+  // 計算各個數字出現的次數
   numbers.forEach(function (item) {
     if (cntNum[item]) {
       cntNum[item] += 1;
@@ -12,14 +14,11 @@ function findDifferent(numbers) {
     }
   });
 
-  let result;
-  Object.keys(cntNum).forEach((key) => {
-    if (cntNum[key] == 1) {
-      result = key;
+  for (let num of numbers) {
+    if (cntNum[num] == 1) {
+      return num;
     }
-  });
-
-  return result;
+  }
 }
 
 console.log(findDifferent([1, 1, 1, 1, 3, 1, 1, 1])); // 印出 3

@@ -3,16 +3,16 @@
 // 題目：完成函數的內容，把傳進去的數字的每個位數平方之後組合在一起
 
 function squareDigits(num) {
-  const str = String(num).split('') // 轉換成字串並切割
-  const result = []
+  const str = String(num).split(""); // 轉換成字串並切割
+  let result = "";
 
   str.forEach((val) => {
-    result.push(Number(val)**2)
-  })
+    result += (Number(val) ** 2).toString(); // 計算平方後轉成字串並串起來
+  });
 
-  return result.join('') 
+  return result;
 }
 
-console.log(squareDigits(3212)) // 印出 9414
-console.log(squareDigits(2112)) // 印出 4114
-console.log(squareDigits(387)) // 印出 96449
+console.log(squareDigits(3212)); // 印出 9414
+console.log(squareDigits(2112)); // 印出 4114
+console.log(squareDigits(387)); // 印出 96449

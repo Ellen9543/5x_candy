@@ -1,23 +1,16 @@
 // 編號：CANDY-004
 // 程式語言：JavaScript
 // 題目：完成函數的內容，把傳進去的秒數變成平常人類看的懂的時間格式
-
 function humanReadableTimer(seconds) {
-  const result = { seconds: 0, minutes: 0, hours: 0 };
+  const hour = Math.floor(seconds / 3600); // 計算小時 60*60
+  const minute = Math.floor((seconds % 3600) / 60); // 剩下的秒數計算成分鐘
+  const second = Math.floor(seconds % 60); // 不足一分鐘的就是秒數
 
-  for (var key in result) {
-    let times;
-    if (key == "hours") {
-      times = seconds;
-    } else {
-      times = seconds % 60;
-    }
+  const formatNum = function (num) {
+    return String(num).padStart(2, "0"); // 補齊兩位數
+  };
 
-    result[key] = String(times).padStart(2, "0"); // 補齊兩位數
-    seconds = parseInt(seconds / 60);
-  }
-
-  return `${result["hours"]}:${result["minutes"]}:${result["seconds"]}`;
+  return `${formatNum(hour)}:${formatNum(minute)}:${formatNum(second)}`;
 }
 
 console.log(humanReadableTimer(0)); // 印出 00:00:00

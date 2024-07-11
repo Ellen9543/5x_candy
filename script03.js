@@ -10,9 +10,9 @@ function moveZerosToEnd(arr) {
 
   list.forEach((val) => {
     if (val === 0) {
-      zero.push(val);
+      zero.push(val); // 放 0
     } else {
-      other.push(val);
+      other.push(val); // 放 不是0
     }
   });
 
