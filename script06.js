@@ -7,11 +7,7 @@ function findDifferent(numbers) {
 
   // 計算各個數字出現的次數
   numbers.forEach(function (item) {
-    if (cntNum[item]) {
-      cntNum[item] += 1;
-    } else {
-      cntNum[item] = 1;
-    }
+    cntNum[item] = (cntNum[item] || 0) + 1;
   });
 
   for (let num of numbers) {

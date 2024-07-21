@@ -5,18 +5,15 @@
 let list = [false, 1, 0, -1, 2, 0, 1, 3, "a"];
 
 function moveZerosToEnd(arr) {
-  const zero = [];
-  const other = [];
-
-  list.forEach((val) => {
-    if (val === 0) {
-      zero.push(val); // 放 0
-    } else {
-      other.push(val); // 放 不是0
-    }
+  const result = arr.filter((val) => {
+    return val !== 0;
   });
 
-  return other.concat(zero);
+  const zero = arr.filter((val) => {
+    return val === 0;
+  });
+
+  return result.concat(zero);
 }
 
 let result = moveZerosToEnd(list);
