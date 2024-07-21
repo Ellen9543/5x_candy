@@ -3,9 +3,7 @@
 // 題目：移除網址中的錨點（Anchor）
 
 function removeAnchor(url) {
-  const idx = url.indexOf("#");
-
-  return 0 < idx ? url.slice(0, idx) : url;
+  return url.split("#")[0];
 }
 
 console.log(removeAnchor("5xcampus.com")); // 印出 5xcampus.com

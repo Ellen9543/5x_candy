@@ -6,15 +6,13 @@
 function expandedForm(num) {
   const numStr = String(num);
   let i = numStr.length;
-  let result = [];
+  const result = [];
   for (val of numStr) {
-    if (val == 0) {
-      i--;
-      continue;
+    if (val != 0) {
+      const str = i > 1 ? `${String(Math.pow(10, i - 1))} x ${val}` : val;
+      result.push(str);
     }
 
-    const str = i > 1 ? `${String(Math.pow(10, i - 1))} x ${val}` : val;
-    result.push(str);
     i--;
   }
   return result.join(" + ");
