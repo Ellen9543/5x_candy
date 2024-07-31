@@ -7,7 +7,15 @@
 //   當捨入計算位數剛好是 5 的時候，會算出離這個數字比較近的偶數
 
 function bankersRounding(num, digits = 0) {
-  return Math.round(num, digits);
+  const pow = Math.pow(10, digits);
+  const scaleNum = num * pow;
+  const roundNum = Math.round(scaleNum);
+
+  if (Math.abs(roundNum - scaleNum) != 0.5) {
+    return roundNum / pow;
+  }
+
+  return Math.ceil(scaleNum) % 2 == 0 ? roundNum / pow : (roundNum - 1) / pow;
 }
 
 console.log(bankersRounding(0.4)); // 0

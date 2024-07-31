@@ -5,13 +5,8 @@
 let list = [false, 1, 0, -1, 2, 0, 1, 3, "a"];
 
 function moveZerosToEnd(arr) {
-  const result = arr.filter((val) => {
-    return val !== 0;
-  });
-
-  const zero = arr.filter((val) => {
-    return val === 0;
-  });
+  const result = arr.filter((val) => val !== 0);
+  const zero = arr.filter((val) => val === 0);
 
   return result.concat(zero);
 }
